@@ -23,39 +23,40 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return draw;
     } else if (playerSelection == rock && computerSelection == paper) {
-        return lose;
         console.log("Paper beats Rock");
+        return lose;        
     } else if ( playerSelection == scissors && computerSelection == paper) {
-        return win;
         console.log("Scissors beat paper");
+        return win;
     } else if (playerSelection == rock && computerSelection == scissors) {
-        return win;
         console.log("Rock beats Scissors");
-    } else if (playerSelection == paper && computerSelection == scissors) {
-        return lose;
-        console.log("Scissors beat paper");
-    } else if (playerSelection == paper && computerSelection == rock) {
         return win;
-        console.log("Paper beats Rock");
-    } else if (playerSelection == scissors && computerSelection == rock) {
+    } else if (playerSelection == paper && computerSelection == scissors) {
+        console.log("Scissors beat paper");
         return lose;
-    }    console.log("Rock beats Scissors"); 
+    } else if (playerSelection == paper && computerSelection == rock) {
+        console.log("Paper beats Rock");
+        return win;  
+    } else if (playerSelection == scissors && computerSelection == rock) {
+        console.log("Rock beats Scissors");
+        return lose;
+    }   
 }
 
 function game() {
      let playerScore = 0;
      let computerScore = 0;
      for (let i = 0; i < 5; i++) {
-        playerSelection = prompt("Rock,Paper,Scissors?") 
-        let game = playRound();
-        if (game = win ) {
+        let player = prompt("Rock,Paper,Scissors?") ;
+        let game = playRound(player, computerPlay())
+        if (game == win ) {
             console.log(win);
             playerScore ++;
             console.log(playerScore + " " + computerScore)
-        }else if (game = draw ) {
+        }else if (game == draw ) {
             console.log(draw);  
             console.log(playerScore + " " + computerScore)
-        }else if (game = lose ) {
+        }else if (game == lose ) {
             console.log(lose);  
             computerScore ++ ;
             console.log(playerScore + " " + computerScore)
